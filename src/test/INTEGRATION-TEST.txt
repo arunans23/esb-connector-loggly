@@ -39,15 +39,15 @@ STEPS:
 
  4. Required properties for Loggly Connector Integration Testing
 
-	i) logglyAccountApiUrl 		- The URL of the account subdomain. This parameter takes the format of "http://<account>.loggly.com". Substitute your account name for "<account>".
+	i) logglyAccountApiUrl 	    - The URL of the account subdomain. This parameter takes the format of "http://<account>.loggly.com". Substitute your account name for "<account>".
 	ii) logglyApiUrl            - The API URL. Current API URL is "http://logs-01.loggly.com".
-	iii) token 				    - The customer token. Follow the steps in 5) to derive the customer token.
-	iv) txtFileName 		    - Name of the file which is used in the uploadLogFile method. File is located at "{LOGGLY_HOME}/src/test/resources/artifacts/ESB/config/resources/loggly/".
-	v) username 			    - Username of the loggly account. This will be used to generate the Basic HTTP Access Authentication Token mentioned in Step 5).
-	vi) password            	- Password of the loggly account. This will be used to generate the Basic HTTP Access Authentication Token mentioned in Step 5).
-	vii) query 			        - A random string which will be used to query the logs. Eg: "abc".
-	viii) firstLine 	        - A random string value which will be logged Eg: "aaa".
-	ix) secondLine 				- A random string value which will be logged Eg: "bbb".
+	iii) token 		    - The customer token. Follow the steps in 5) to derive the customer token.
+	iv) txtFileName 	    - Name of the file which is used in the uploadLogFile method. File is located at "{LOGGLY_HOME}/src/test/resources/artifacts/ESB/config/resources/loggly/".
+	v) username 		    - Username of the loggly account. This will be used to generate the Basic HTTP Access Authentication Token mentioned in Step 5).
+	vi) password                - Password of the loggly account. This will be used to generate the Basic HTTP Access Authentication Token mentioned in Step 5).
+	vii) query 		    - A random string which will be used to query the logs. Eg: "abc".
+	viii) firstLine 	    - A random string value which will be logged Eg: "aaa".
+	ix) secondLine 		    - A random string value which will be logged Eg: "bbb".
 
  5. This API uses two types of authentication schemes. Those two types are authentication via Customer Token and Basic HTTP Access Authentication.
 
@@ -56,7 +56,7 @@ STEPS:
 		- Navigate to loggly account home page.
 		- Go to "Source Setup" > "Customer Tokens" and get the customer token which is required to execute the uploadLogFile and sendBulkLogs methods.
 
-   ii) Basic HTTP Access Authentication:
+        ii) Basic HTTP Access Authentication:
 
 		- The below steps will be done through the code. It is sufficient to provide the username and the password in the properties file.
 		- Concatenate the username and password according to the below format.
