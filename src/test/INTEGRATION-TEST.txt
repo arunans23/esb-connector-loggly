@@ -25,7 +25,7 @@ STEPS:
     <messageFormatter contentType="multipart/form-data"
                             class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
 
-    <messageBuilder contentType="text/html"	class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
+    <messageBuilder contentType="text/html"  class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
 
     <messageBuilder contentType="multipart/form-data"
                             class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
