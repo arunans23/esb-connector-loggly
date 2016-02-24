@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~  Copyright (c) 2016, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+~
+~  WSO2 Inc. licenses this file to you under the Apache License,
+~  Version 2.0 (the "License"); you may not use this file except
+~  in compliance with the License.
+~  You may obtain a copy of the License at
+~
+~   http://www.apache.org/licenses/LICENSE-2.0
+~
+~  Unless required by applicable law or agreed to in writing,
+~  software distributed under the License is distributed on an
+~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~  KIND, either express or implied.  See the License for the
+~  specific language governing permissions and limitations
+~  under the License.
+-->
+<template name="sendBulkLogs" xmlns="http://ws.apache.org/ns/synapse">
+    <!-- This method uses a different authentication scheme. Therefore the init method should not be called for this method -->
+    <parameter name="apiUrl" description="The api url to connect"/>
+    <parameter name="token"
+               description="The customer token associated with the account"/>
+    <parameter name="logData" description="The data which needs to be logged"/>
+    <sequence>
+        <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
+        <property name="uri.var.token" expression="$func:token"/>
+        <property name="uri.var.logData" expression="$func:logData"/>
+
+        <payloadFactory media-type="xml">
+            <format>
+                <ns:text xmlns:ns="http://ws.apache.org/commons/ns/payload">
+                    $1
+                </ns:text>
+            </format>
+            <args>
+                <arg expression="get-property('uri.var.logData')"/>
+            </args>
+        </payloadFactory>
+        <property name="messageType" value="text/plain" scope="axis2"/>
+
+        <call>
+            <endpoint>
+                <http method="post" uri-template="{uri.var.apiUrl}/bulk/{uri.var.token}/tag/bulk"/>
+            </endpoint>
+        </call>
+
+        <!-- Remove response custom header information -->
+        <header name="Via" scope="transport" action="remove"/>
+        <header name="Set-Cookie" scope="transport" action="remove"/>
+    </sequence>
+</template>
