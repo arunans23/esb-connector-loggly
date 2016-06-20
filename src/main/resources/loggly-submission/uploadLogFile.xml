@@ -23,17 +23,14 @@
     <sequence>
         <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
         <property name="uri.var.token" expression="$func:token"/>
-
         <!-- Force ESB to send the content length to the Loggly API -->
         <property name="FORCE_HTTP_CONTENT_LENGTH" value="true" scope="axis2"/>
         <property name="COPY_CONTENT_LENGTH_FROM_INCOMING" value="true" scope="axis2"/>
-
         <call>
             <endpoint>
                 <http method="post" uri-template="{uri.var.apiUrl}/bulk/{uri.var.token}/tag/file_upload"/>
             </endpoint>
         </call>
-
         <!-- Remove response custom header information -->
         <header name="Via" scope="transport" action="remove"/>
         <header name="Set-Cookie" scope="transport" action="remove"/>
