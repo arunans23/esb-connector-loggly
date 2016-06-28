@@ -51,7 +51,7 @@ public class LogglyConnectorIntegrationTest extends ConnectorIntegrationTestBase
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("loggly-connector-1.0.1");
+        init("loggly-connector-1.0.2-SNAPSHOT");
 
         String authorizationString = connectorProperties.getProperty("username") + ":" + connectorProperties.getProperty("password");
         String authorizationToken = new String(Base64.encodeBase64(authorizationString.getBytes()));
