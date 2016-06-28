@@ -82,10 +82,8 @@ public class LogglyConnectorIntegrationTest extends ConnectorIntegrationTestBase
         final File apiFile = new File(pathToResourcesDirectory + connectorProperties.getProperty("txtFileName"));
         apiFileRequestProcessor.addFiletoRequestBody(apiFile);
         final RestResponse<JSONObject> apiRestResponse = apiFileRequestProcessor.processAttachmentForJsonResponse();
-
         Assert.assertTrue(esbRestResponse.getHttpStatusCode() == 200);
         Assert.assertEquals(esbRestResponse.getBody().get("response").toString(), apiRestResponse.getBody().get("response").toString());
-
     }
 
 

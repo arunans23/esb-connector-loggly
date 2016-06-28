@@ -26,7 +26,6 @@
         <property name="uri.var.from" expression="$func:from"/>
         <property name="uri.var.until" expression="$func:until"/>
         <property name="uri.var.facetSize" expression="$func:facetSize"/>
-
         <script language="js">
             <![CDATA[
 			
@@ -56,18 +55,16 @@
 				}
 				
 				if(urlQuery!=""){
-					urlQuery = '?' + urlQuery.substring(0, urlQuery.length-1);
+					urlQuery = '?' + urlQuery.toString().substring(0, urlQuery.toString().lastIndexOf("&"));
 					mc.setProperty('uri.var.urlQuery', urlQuery);
 				}	
 							
 			]]></script>
-
         <call>
             <endpoint>
                 <http method="get" uri-template="{uri.var.apiUrl}/fields{+uri.var.urlQuery}"/>
             </endpoint>
         </call>
-
         <!-- Remove response custom header information -->
         <header name="X-Varnish" scope="transport" action="remove"/>
         <header name="Access-Control-Allow-Headers" scope="transport" action="remove"/>

@@ -11,11 +11,11 @@ Tested Platform:
 
  - Microsoft WINDOWS V-7
  - UBUNTU 13.04
- - WSO2 ESB 4.9.0
+ - WSO2 ESB 4.9.0, WSO2 ESB 5.0.0-BETA
 
 STEPS:
 
- 1. Make sure the ESB 4.9.0 zip is available at "{LOGGLY_HOME}/repository/"
+ 1. Make sure the latest ESB is available at "{LOGGLY_HOME}/repository/"
 
  2. The ESB should be configured as below;
 	Please make sure that the below mentioned Axis configurations are enabled (/repository/conf/axis2/axis2.xml).
