@@ -11,7 +11,7 @@ Tested Platform:
 
  - Microsoft WINDOWS V-7
  - UBUNTU 13.04
- - WSO2 ESB 4.9.0, WSO2 ESB 4.0.0-BETA
+ - WSO2 ESB 4.9.0, WSO2 ESB 5.0.0-BETA
 
 STEPS:
 
